@@ -7,10 +7,21 @@ function connecter($root, $username, $password)
 {
     $connect = mysqli_connect($root, $username, $password);
     if ($connect->connect_error) {
-        echo "error : " . connect_error;
-    } else
-        echo "connected to MySql successfully <br> <br>";
+        echo "<script> console.log('error !!!')</script>";
+    } else {
+        echo "<script> console.log('connected to MySql successfully')</script>";
+    }
+    return $connect;
+}
 
+function connect_db($root, $username, $password, $db)
+{
+    $connect = mysqli_connect($root, $username, $password, $db);
+    if ($connect->connect_error) {
+        echo "<script> console.log('error !!!')</script>";
+    } else {
+        echo "<script> console.log('connected to MySql successfully')</script>";
+    }
     return $connect;
 }
 
@@ -18,9 +29,9 @@ function deconnecter($con)
 {
     $discon = mysqli_close($con);
     if (!$discon) {
-        echo "error: disconnexion failed";
+        echo "<script> console.log('error: disconnexion failed')</script>";
     } else
-        echo "disconnected from MySql successfully <br> <br>";
+        echo "<script> console.log('disconnected from MySql successfully')</script>";
 }
 
 function create_DB($name)
@@ -28,9 +39,10 @@ function create_DB($name)
     global $root, $username, $password;
     $sql = "CREATE DATABASE IF NOT EXISTS " . $name;
     if (mysqli_query(connecter($root, $username, $password), $sql)) {
-        echo "Database " . $name . " created successfully <br>";
+        echo "<script> console.log('Database " . $name . " created successfully')</script>";
+        deconnecter(connecter($root, $username, $password));
     } else {
-        echo "Error creating database " . $name . "<br>" ;
+        echo "<script> console.log('Error creating database " . $name . "')</script>" ;
     }
 }
 
@@ -40,7 +52,7 @@ function create_Table($name, $bd, array $colums)
     $result = mysqli_query(connecter($root, $username, $password), "SHOW TABLES LIKE '" . $name . "'");
     if ($result) {
         if ($result->num_rows == 1) {
-            echo "Table " . $name . " exists already <br>";
+            echo "<script> console.log('Table " . $name . " exists already')</script>";
         }
     } else {
         $sql = "CREATE TABLE " . $bd . "." . $name . "(";
@@ -49,9 +61,10 @@ function create_Table($name, $bd, array $colums)
         }
         $sql = $sql . $colums[sizeof($colums) - 1] . ");";
         if (mysqli_query(connecter($root, $username, $password), $sql)) {
-            echo "table " . $name . " created successfully <br>";
+            echo "<script> console.log('table " . $name . " created successfully')</script>";
+            deconnecter(connecter($root, $username, $password));
         } else {
-            echo "Error creating table: ". $name . "<br>";
+            echo "<script> console.log('Error creating table: ". $name . "')</script>";
         }
     }
 }
