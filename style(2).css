@@ -14,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .header {
@@ -25,7 +24,7 @@ body {
 }
 
 .header h1 {
-    padding: 1vw; 
+    padding: 1vw;
     font-size: 3.5vw;
     color: linear-gradient(#ffcb85, #976f40);
     background: -webkit-linear-gradient(#ffcb85, #976f40);
@@ -46,82 +45,11 @@ body {
 
 .content {
     color: wheat;
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-}
-
-.items {
-    height: 60vh;
-}
-
-.content_header {
-    padding-bottom: 2vh;
-}
-
-#insert_form {
-    width: 50vw;
-}
-
-#insert_form input {
-    display: flex;
-    flex-direction: column;
-}
-
-#insert_form button {
-    margin-top: 2.5vh;
-}
-
-#admin_table {
-    width: 65vw;
-}
-
-
-
-#command {
-    width: 100%;
-}
-
-.card-body>h1 {
-    color: #260C1C;
-}
-
-.card-body>h2 {
-    font-size: 1.5vw;
-    color: rgb(87, 87, 97);
-}
-
-#price {
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.card-deck {
-    display: flex;
-    flex-flow: row wrap;
-    width: 80vw;
-}
-
-.deactivate {
-    pointer-events: none;
-}
-
-.car {
-    display: flex;
-    flex-direction: row;
-    width: 60vw;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    margin-top: 3vh;
 }
 
 #update_form {
-    margin-right: 10px;
-    width: 30vw;
+    width: 27vw;
 }
 
 #update_form input {
@@ -133,8 +61,44 @@ body {
     margin-top: 2.5vh;
 }
 
-.slam2 {
-    margin-top: 7vh;
+.car {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.card {
+    width: 23vw;
+}
+
+#command {
+    width: 100%;
+}
+
+.card-body>h1 {
+    color: #260C1C;
+}
+
+.card-body>h2 {
+    color: rgb(87, 87, 97);
+}
+
+#price {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.deactivate {
+    pointer-events: none;
+}
+
+.card-img-top {
+    height: 40vh;
+    width: auto;
 }
 
 @media screen and (max-width: 1000px) {
@@ -145,15 +109,7 @@ body {
         margin-top: 20px;
         width: 70vw;
     }
-    #insert_form {
+    #update_form {
         width: 70vw;
     }
-}
- 
-
-
-#admin_button, #index_button {
-    position: absolute;
-    top: 3vh;
-    left: 2vw;
 }

@@ -70,7 +70,7 @@ function create_Table($name, $bd, array $colums)
 }
 
 $col_categories = ["cat_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT", "name varchar(20)"];
-$col_items = ["item_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT", "name varchar(20)", "description varchar(20)", "price float", "cat_id int(11)", "FOREIGN KEY (cat_id) REFERENCES Categories(cat_id)"];
+$col_items = ["item_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT", "name varchar(20)", "description varchar(20)", "price float", "cat_id int(11)", "FOREIGN KEY (cat_id) REFERENCES Categories(cat_id)", "img varchar(500) DEFAULT 'upload/default.jpg'"];
 
 create_DB("Store");
 create_Table("Categories", "Store", $col_categories);
